@@ -18,6 +18,9 @@ html
           = link_to 'サインアップ', new_user_registration_path
           = link_to 'ログイン', new_user_session_path
 
-    p.notice = notice
-    p.alert = alert
-    = yield
+    .container
+      - if notice
+        p.notice.alert.alert-info = notice
+      - if alert
+        p.alert.alert.alert-danger = alert
+      = yield

@@ -1,0 +1,43 @@
+h2
+  | 新規登録画面
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .field
+    = f.label :email, "メールアドレス ※必須"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+  .field
+    = f.label :username, "ユーザ名 ※必須"
+    = f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control"
+  .field
+    = f.label :password, "パスワード ※必須"
+    - if @minimum_password_length
+      span
+        | (
+        = @minimum_password_length
+        | 文字以上で入力してください)
+    = f.password_field :password, autocomplete: "new-password", class: "form-control"
+  .field
+    = f.label :password_confirmation, "パスワード再入力 ※必須"
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+  .field
+    = f.label :sex, "性別"
+    = f.select :sex, [["男性", "male"], ["女性", "female"]], {}, {class: "form-control"}
+  .field
+    = f.label :birth_day, "誕生日"
+    = f.date_select :birth_day, {use_month_numbers: "true", start_year: 1940, end_year: 2018}, {class: "form-control"}
+  .field
+    = f.label :profile, "プロフィール"
+    = f.text_area :profile, class: "form-control"
+  .field
+    = f.label :bench_press_max, "ベンチプレスMAX(kg)"
+    = f.number_field :bench_press_max, class: "form-control"
+  .field
+    = f.label :squat_max, "スクワットMAX(kg)"
+    = f.number_field :squat_max, class: "form-control"
+  .field
+    = f.label :deadlift_max, "デッドリフトMAX(kg)"
+    = f.number_field :deadlift_max, class: "form-control"
+  br
+  .actions
+    = f.submit "登録", class: "btn btn-primary"
+= render "devise/shared/links"

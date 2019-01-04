@@ -16,8 +16,8 @@ default: &default
   username: root
   password: root
   # docker settings
-  host: db
-  # socket: /var/run/mysqld/mysqld.sock
+  # host: db
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default

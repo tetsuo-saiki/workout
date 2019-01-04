@@ -5,6 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]
 
+  validates :username, presence: true
+  validates :sex, presence: true
+  validates :birth_day, presence: true
+  validates :profile, length: {maximum: 255}
+  validates :bench_press_max, allow_blank: true, numericality: true
+  validates :squat_max, allow_blank: true, numericality: true
+  validates :deadlift_max, allow_blank: true, numericality: true
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]
@@ -22,5 +30,4 @@ class User < ApplicationRecord
       super
     end
   end
-
 end
