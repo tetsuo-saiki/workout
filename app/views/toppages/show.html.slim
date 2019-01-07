@@ -1,13 +1,15 @@
-= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-secondary"
+- if user_signed_in?
+  = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-secondary"
 br
 br
 table.table.table-striped
   tr
     th ユーザ名
     td = current_user.username
-  tr
-    th メールアドレス
-    td = current_user.email
+  - if user_signed_in?
+    tr
+      th メールアドレス
+      td = current_user.email
   tr
     th 性別
     td = current_user.sex
@@ -17,9 +19,6 @@ table.table.table-striped
   tr
     th プロフィール
     td = current_user.profile
-  tr
-    th メールアドレス
-    td = current_user.email
   tr
     th ベンチプレスMAX(kg)
     td = current_user.bench_press_max

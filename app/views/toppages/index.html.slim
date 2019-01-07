@@ -1,2 +1,21 @@
-h1 Toppages#index
-p Find me in app/views/toppages/index.html.slim
+- if user_signed_in?
+  = form_for(@post) do |f|
+    ul
+    - @post.errors.full_messages.each do |message|
+      li = message
+    .form-group
+      = f.text_area :post, class: 'form-control'
+    = f.submit "投稿する", class:'btn btn-secondary'
+  br
+  - if @posts
+    table.table.table-striped
+      - @posts.each do |post|
+        tr
+          td = post.user.username
+          td = simple_format(post.post)
+          td = post.image
+          td = time_ago_in_words(post.created_at)+"前"
+          - if current_user == post.user
+            td = link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
+
+      = paginate @posts

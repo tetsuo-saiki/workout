@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :squat_max, allow_blank: true, numericality: true
   validates :deadlift_max, allow_blank: true, numericality: true
 
+  has_many :posts
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]
