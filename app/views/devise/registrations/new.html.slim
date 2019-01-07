@@ -24,6 +24,7 @@ h2
     = f.select :sex, [["男性", "male"], ["女性", "female"]], {}, {class: "form-control"}
   .field
     = f.label :birth_day, "誕生日"
+    br
     = f.date_select :birth_day, {use_month_numbers: "true", start_year: 1940, end_year: 2018}, {class: "form-control"}
   .field
     = f.label :profile, "プロフィール"
