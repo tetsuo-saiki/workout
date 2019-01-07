@@ -1,8 +1,8 @@
 class ToppagesController < ApplicationController
   def index
+    @posts = Post.page(params[:page]).per(5).order('created_at desc')
     if user_signed_in?
       @post = current_user.posts.build
-      @posts = Post.page(params[:page]).per(10).order('created_at desc')
     end
   end
 
