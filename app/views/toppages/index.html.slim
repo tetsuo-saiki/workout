@@ -11,6 +11,8 @@
   table.table.table-striped
     - @posts.each do |post|
       tr
+        td
+          img class="img-rounded" src="#{gravatar_url(@user, { size: 50 })}" alt=""
         td = post.user.username
         td = simple_format(post.post)
         td = post.image
