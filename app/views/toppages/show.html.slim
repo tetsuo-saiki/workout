@@ -1,29 +1,35 @@
 - if user_signed_in?
+  - if current_user.image.blank?
+    img class="img-rounded" src="#{gravatar_url(@user, { size: 300 })}" alt="" 
+  - else
+    img class="img-rounded" src="#{current_user.image}" width="300" alt=""
+  br
+  br
   = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-secondary"
-br
-br
-table.table.table-striped
-  tr
-    th ユーザ名
-    td = current_user.username
-  tr
-    th メールアドレス
-    td = current_user.email
-  tr
-    th 性別
-    td = current_user.sex
-  tr
-    th 誕生日
-    td = current_user.birth_day
-  tr
-    th プロフィール
-    td = simple_format(current_user.profile)
-  tr
-    th ベンチプレスMAX(kg)
-    td = current_user.bench_press_max
-  tr
-    th スクワットMAX(kg)
-    td = current_user.squat_max
-  tr
-    th デッドリフトMAX(kg)
-    td = current_user.deadlift_max
+  br
+  br
+  table.table.table-striped
+    tr
+      th ユーザ名
+      td = current_user.username
+    tr
+      th メールアドレス
+      td = current_user.email
+    tr
+      th 性別
+      td = current_user.sex
+    tr
+      th 誕生日
+      td = current_user.birth_day
+    tr
+      th プロフィール
+      td = simple_format(current_user.profile)
+    tr
+      th ベンチプレスMAX(kg)
+      td = current_user.bench_press_max
+    tr
+      th スクワットMAX(kg)
+      td = current_user.squat_max
+    tr
+      th デッドリフトMAX(kg)
+      td = current_user.deadlift_max

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
       flash[:notice] = '正常に投稿しました。'
       redirect_to root_url
     else
+      @user = current_user
       @posts = Post.page(params[:page]).per(5).order('created_at desc')
       flash.now[:alert] = '投稿に失敗しました。'
       render 'toppages/index'
