@@ -6,10 +6,9 @@ table.table.table-striped
   tr
     th ユーザ名
     td = current_user.username
-  - if user_signed_in?
-    tr
-      th メールアドレス
-      td = current_user.email
+  tr
+    th メールアドレス
+    td = current_user.email
   tr
     th 性別
     td = current_user.sex
@@ -18,7 +17,7 @@ table.table.table-striped
     td = current_user.birth_day
   tr
     th プロフィール
-    td = current_user.profile
+    td = simple_format(current_user.profile)
   tr
     th ベンチプレスMAX(kg)
     td = current_user.bench_press_max
