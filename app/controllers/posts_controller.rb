@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:notice] = '投稿を削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
 
   private

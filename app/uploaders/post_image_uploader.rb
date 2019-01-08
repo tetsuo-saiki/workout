@@ -1,4 +1,4 @@
-class UserImageUploader < CarrierWave::Uploader::Base
+class PostImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -35,7 +35,6 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # アップロードできる拡張子を制限
   def extension_whitelist
     %w(jpg jpeg gif png)
   end

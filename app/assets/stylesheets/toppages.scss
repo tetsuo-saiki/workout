@@ -3,5 +3,58 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .img-rounded {
+    border-radius: 50%;
+}
+
+.img-half-rounded {
+    border-radius: 10px;
+}
+
+.stream {
+    background-color: #fcf5f3;
     border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.stream-content {
+}
+.stream-userimage {
+    margin-right: 10px;
+    // background-color: #198f15;
+    // width: 15%;
+}
+.stream-username {
+    font-weight: bold;
+    // background-color: #b4eeb2;
+    padding-top: 10px;
+    width: 40%;
+    vertical-align: center;
+}
+.stream-posttime {
+    font-size: 12px;
+    // background-color: #e7e7f1;
+    width: 40%;
+    text-align: right;
+    // vertical-align: middle;
+    padding: 10px 0;
+}
+.stream-post {
+    // background-color: #da897b;
+    width: 83%;
+    margin-left: 60px;
+}
+.stream-postimage {
+    
+}
+.stream-deletebutton {
+
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.stream-post.col-xs-12 a {
+    color: #40474e !important;
 }

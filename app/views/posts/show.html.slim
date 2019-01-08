@@ -4,8 +4,9 @@
   - else
     img.img-rounded src="#{@post.user.image}" width="50" alt="" 
 .inline = @post.user.username
-.post-main = simple_format(@post.post)
-div = @post.image
+.post-main
+  = simple_format(@post.post)
+  img class="img-half-rounded" src="#{@post.image}" width="300" alt=""
 .post-time = time_ago_in_words(@post.created_at)+"前"
 div
   - if current_user == @post.user 
