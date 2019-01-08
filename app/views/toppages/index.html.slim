@@ -37,6 +37,9 @@
           .row
             .stream-postimage.col-xs-12
               img class="img-half-rounded" src="#{post.image}" width="150" alt=""
+        .row
+          .stream-commentcount.col-xs-12
+            = link_to "コメント#{post.comments.count}件", post_path(post)
         / - if current_user == post.user 
         /   .row
         /     .stream-deletebutton.col-xs-12

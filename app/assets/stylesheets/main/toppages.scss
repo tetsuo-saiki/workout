@@ -44,10 +44,16 @@
     margin-left: 60px;
 }
 .stream-postimage {
-    
+    margin-left: 60px;
 }
 .stream-deletebutton {
 
+}
+
+.stream-commentcount {
+    margin-left: 60px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .row {
@@ -55,6 +61,6 @@
     margin-right: 0 !important;
 }
 
-.stream-post.col-xs-12 a {
+.stream-post a, .stream-commentcount a {
     color: #40474e !important;
 }

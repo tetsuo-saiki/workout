@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :deadlift_max, allow_blank: true, numericality: true
 
   has_many :posts
+  has_many :comments
 
   mount_uploader :image, UserImageUploader
 

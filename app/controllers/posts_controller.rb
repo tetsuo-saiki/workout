@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 
   def show
     @user = current_user
+    @comment = @post.comments.build
+    @comments = @post.comments.page(params[:page]).per(5).order('created_at desc')
   end
 
   def destroy

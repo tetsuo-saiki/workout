@@ -8,6 +8,38 @@
   = simple_format(@post.post)
   img class="img-half-rounded" src="#{@post.image}" width="300" alt=""
 .post-time = time_ago_in_words(@post.created_at)+"前"
+br
+table.table.table-striped
+  tr
+    th コメント一覧
+    td
+    td
+    td
+  - if @comments
+    - @comments.each do |comment|
+      tr
+        td = simple_format(comment.comment)
+        td = time_ago_in_words(comment.created_at)+"前"
+        td
+          - if comment.user.image.blank?
+            img.img-rounded src="#{gravatar_url(comment.user, { size: 50 })}" alt="" 
+          - else
+            img.img-rounded src="#{comment.user.image}" width="50" alt="" 
+        td
+          - if current_user == comment.user 
+            = link_to "削除", [comment, post_id: @post.id], method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
+= paginate @comments
+- if user_signed_in?
+  = form_for(@comment) do |f|
+    ul
+    - @comment.errors.full_messages.each do |message|
+      li = message
+    .form-group
+      = f.hidden_field :post_id, value: @post.id
+    .form-group
+      = f.text_area :comment, class: 'form-control'
+    = f.submit "コメントを投稿する", class:'btn btn-dark'
+br
 div
   - if current_user == @post.user 
-    = link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
+    = link_to "この投稿を削除", @post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'

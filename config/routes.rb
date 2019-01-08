@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/create'
-  get 'posts/destroy'
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   get 'toppages/index'
   get 'toppages/show'
@@ -8,4 +6,5 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
 
   resources :posts, only: [:create, :show, :destroy]
+  resources :comments, only: [:create, :edit, :destroy]
 end
