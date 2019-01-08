@@ -1,0 +1,12 @@
+.inline
+  - if @post.user.image.blank?
+    img.img-rounded src="#{gravatar_url(@post.user, { size: 50 })}" alt="" 
+  - else
+    img.img-rounded src="#{@post.user.image}" width="50" alt="" 
+.inline = @post.user.username
+.post-main = simple_format(@post.post)
+div = @post.image
+.post-time = time_ago_in_words(@post.created_at)+"前"
+div
+  - if current_user == @post.user 
+    = link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'

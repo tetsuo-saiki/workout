@@ -17,7 +17,7 @@
           - else
             img.img-rounded src="#{post.user.image}" width="50" alt="" 
         th = post.user.username
-        td = simple_format(post.post)
+        td = link_to simple_format(post.post), post_path(post)
         td = post.image
         td = time_ago_in_words(post.created_at)+"前"
         td

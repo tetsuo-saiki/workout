@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:destroy]
+  before_action :set_post, only: [:show]
 
   def create
     @post = current_user.posts.build(post_params)
@@ -15,6 +16,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+  end
+
   def destroy
     @post.destroy
     flash[:notice] = '投稿を削除しました。'
@@ -22,6 +27,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:post, :image)
