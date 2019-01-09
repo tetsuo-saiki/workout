@@ -64,3 +64,26 @@
 .stream-post a, .stream-commentcount a {
     color: #40474e !important;
 }
+
+.toppages-left {
+    float: left;
+    width: 20%;
+    padding: 0;
+    text-align: left;
+    font-size: 12px;
+}
+
+.toppages-left ul {
+    margin: 0;
+    padding: 0;
+}
+
+.toppages-left li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.toppages-right {
+    float: right;
+    width: 80%;
+}

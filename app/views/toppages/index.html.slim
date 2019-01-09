@@ -1,47 +1,56 @@
 - if user_signed_in?
-  = form_for(@post) do |f|
-    ul
-    - @post.errors.full_messages.each do |message|
-      li = message
-    .form-group
-      = f.text_area :post, class: 'form-control'
-    .input-group
-      .custom-file
-        = f.file_field :image, class: "custom-file-input", id: "customFile", lang: "ja"
-        label class="custom-file-label" for="customFile"
-          | 画像を選択
-      .input-group-append
-        button type="button" class="btn btn-outline-secondary reset"
-          | 取消
+  .toppages-left
+    | タグ検索
     br
-    = f.submit "投稿する", class:'btn btn-dark'
-  br
-- if @posts
-  .index
-    - @posts.each do |post|
-      .stream
-        .row
-          .stream-userimage.col-xs-5
-            - if post.user.image.blank?
-              img.img-rounded src="#{gravatar_url(post.user, { size: 50 })}" alt="" 
-            - else
-              img.img-rounded src="#{post.user.image}" width="50" alt="" 
-          .stream-username.col-xs-4
-            = post.user.username
-          .stream-posttime.col-xs-4
-            p = time_ago_in_words(post.created_at)+"前"
-        .row
-          .stream-post.col-xs-12
-            = link_to simple_format(post.post), post_path(post)
-        - if !post.image.blank?
-          .row
-            .stream-postimage.col-xs-12
-              img class="img-half-rounded" src="#{post.image}" width="150" alt=""
-        .row
-          .stream-commentcount.col-xs-12
-            = link_to "コメント#{post.comments.count}件", post_path(post)
-        / - if current_user == post.user 
-        /   .row
-        /     .stream-deletebutton.col-xs-12
-        /       = link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
-  = paginate @posts
+    br
+    ul
+      - @tags.each do |tag|
+        li = tag.tag
+
+  .toppages-right
+    = form_for(@post) do |f|
+      ul
+      - @post.errors.full_messages.each do |message|
+        li = message
+      .form-group
+        = f.text_area :post, class: 'form-control'
+      .input-group
+        .custom-file
+          = f.file_field :image, class: "custom-file-input", id: "customFile", lang: "ja"
+          label class="custom-file-label" for="customFile"
+            | 画像を選択
+        .input-group-append
+          button type="button" class="btn btn-outline-secondary reset"
+            | 取消
+      br
+      = f.submit "投稿する", class:'btn btn-dark'
+    br
+    - if @posts
+      .index
+        - @posts.each do |post|
+          .stream
+            .row
+              .stream-userimage.col-xs-5
+                - if post.user.image.blank?
+                  img.img-rounded src="#{gravatar_url(post.user, { size: 50 })}" alt="" 
+                - else
+                  img.img-rounded src="#{post.user.image}" width="50" alt="" 
+              .stream-username.col-xs-4
+                = post.user.username
+              .stream-posttime.col-xs-3
+                p = time_ago_in_words(post.created_at)+"前"
+            .row
+              .stream-post.col-xs-12
+                = link_to simple_format(post.post), post_path(post)
+            - if !post.image.blank?
+              .row
+                .stream-postimage.col-xs-12
+                  img class="img-half-rounded" src="#{post.image}" width="150" alt=""
+            .row
+              .stream-commentcount.col-xs-12
+                = link_to "コメント#{post.comments.count}件", post_path(post)
+            / - if current_user == post.user 
+            /   .row
+            /     .stream-deletebutton.col-xs-12
+            /       = link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
+      = paginate @posts
