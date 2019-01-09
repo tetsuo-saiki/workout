@@ -3,6 +3,7 @@ class ToppagesController < ApplicationController
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.page(params[:page]).per(5).order('created_at desc')
+      @posts_count = @tag.posts.count
     else
       @posts = Post.page(params[:page]).per(5).order('created_at desc')
     end

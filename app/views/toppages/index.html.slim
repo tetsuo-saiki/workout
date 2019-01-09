@@ -25,9 +25,9 @@
       br
       = f.submit "投稿する", class:'btn btn-dark'
   br
-  - if @tag
+  - if @tag && @posts_count
     .row
-      = "タグ： #{@tag.tag} の検索結果"
+      = "タグ： #{@tag.tag} の検索結果　（#{@posts_count}件）"
   - if @posts
     .index
       - @posts.each do |post|
