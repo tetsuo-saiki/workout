@@ -13,6 +13,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li.nav-item
           = link_to "#{@user.username}", toppages_show_path, class: "nav-link"
         li.nav-item
+          = link_to "タグ", new_tag_path, class: "nav-link"
+        li.nav-item
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
       - else
         li.nav-item

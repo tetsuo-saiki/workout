@@ -1,0 +1,22 @@
+.tags-left {
+    float: left;
+    width: 30%;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.tags-left ul, .tags-right ul {
+    margin: 0;
+    padding: 0;
+}
+
+.tags-left li, .tags-right li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.tags-right {
+    float: right;
+    width: 70%;
+}

@@ -1,2 +1,26 @@
-h1 Tags#new
-p Find me in app/views/tags/new.html.slim
+- if user_signed_in?
+  .tags-left
+    | デフォルトタグ一覧
+    br
+    br
+    ul
+      - @default_tags.each do |tag|
+        li = tag.tag
+
+  .tags-right
+    = form_for(@tag) do |f|
+      ul
+      - @tag.errors.full_messages.each do |message|
+        li = message
+      = f.hidden_field :user_id, value: @user.id
+      .form-group
+        = f.text_field :tag, class: 'form-control'
+      = f.submit "タグを作成する", class:'btn btn-dark'
+    br
+    | 作成したタグ一覧
+    br
+    br
+    ul
+      - @user_tags.each do |tag|
+        li = tag.tag
+    = paginate @user_tags
