@@ -1,0 +1,15 @@
+- if user_signed_in? && current_user == @post.user
+  .row
+    .tag-relations
+      .tag-relations-left
+        | デフォルトタグ一覧
+        - @default_tags.each do |tag|
+          = render "tag_relations/button", tag: tag, post: @post
+
+      .tag-relations-right
+        | 作成したタグ一覧
+        - @user_tags.each do |tag|
+          = render "tag_relations/button", tag: tag, post: @post
+  br
+  .row
+    = link_to "戻る", root_path, class: "btn btn-default"

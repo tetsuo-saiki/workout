@@ -18,7 +18,7 @@ class TagsController < ApplicationController
       @default_tags = Tag.all.order('created_at asc').limit(15)
       @user_tags = Tag.where('user_id', current_user.id).page(params[:page]).per(5).order('created_at desc')
       @tag = Tag.new
-      flash.now[:alert] = 'タグの作成に失敗しました。'
+      flash.now[:alert] = 'タグの作成に失敗しました。タグは10文字以内で作成してください。'
       render 'tags/new'
     end
   end
