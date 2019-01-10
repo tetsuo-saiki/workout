@@ -8,7 +8,7 @@ class TagRelationsController < ApplicationController
     end
     @user = current_user
     @default_tags = Tag.all.order('created_at asc').limit(15)
-    @user_tags = Tag.where('user_id', current_user.id).page(params[:page]).per(5).order('created_at desc')
+    @user_tags = Tag.where(user_id: current_user.id).order('created_at desc')
   end
 
   def create
