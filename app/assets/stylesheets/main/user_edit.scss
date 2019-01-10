@@ -6,3 +6,11 @@
 .nessesary {
     color: red;
 }
+
+a#pills-ownpost-tab, a#pills-profile-tab, a#pills-like-tab {
+    color: #343a40;
+}
+
+a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active {
+    color: #fff;
+}

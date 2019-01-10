@@ -78,3 +78,7 @@
     display: inline-block;
     margin-left: 5px;
 }
+
+.heart-liked:hover, .heart-unliked:hover {
+    transform: translate3d(0, 1px, 0);
+}

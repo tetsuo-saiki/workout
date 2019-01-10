@@ -1,0 +1,40 @@
+- if posts
+  .index
+    - posts.each do |post|
+      .stream
+        .row
+          .stream-userimage.col-xs-5
+            - if post.user.image.blank?
+              img.img-rounded src="#{gravatar_url(post.user, { size: 50 })}" alt="" 
+            - else
+              img.img-rounded src="#{post.user.image}" width="50" alt="" 
+          .stream-username.col-xs-4
+            = post.user.username
+          .stream-posttime.col-xs-3
+            p = time_ago_in_words(post.created_at)+"前"
+        .row
+          .stream-post.col-xs-12
+            = link_to simple_format(post.post), post_path(post)
+            -if post.tags
+              .added_tags
+                - post.tags.each do |tag|
+                  .added_tag
+                    = tag.tag
+        - if !post.image.blank?
+          .row
+            .stream-postimage.col-xs-12
+              img class="img-half-rounded" src="#{post.image}" width="150" alt=""
+        - if user_signed_in?
+          .row
+            .heart.stream-heart
+              = render "like_relations/button", post: post, user: user
+            .heart-count.stream-heart-count
+              = post.liked_users.count
+        .row
+          .stream-commentcount.col-xs-12
+            = link_to "コメント#{post.comments.count}件", post_path(post)
+        - if current_user == post.user
+          .row
+            .stream-commentcount.col-xs-12
+              = link_to "この投稿にタグをつける", new_tag_relation_path(id: post.id)
+  = paginate posts

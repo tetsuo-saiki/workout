@@ -10,10 +10,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             = link_to image_tag("#{gravatar_url(@user, { size: 40 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), toppages_show_path
           - else
             = link_to image_tag("#{@user.image}", {width: "40", alt: "ユーザプロフィール", class: "img-rounded"}), toppages_show_path
-        li.nav-item
-          = link_to "#{@user.username}", toppages_show_path, class: "nav-link"
-        li.nav-item
-          = link_to "タグ", new_tag_path, class: "nav-link"
+        / li.nav-item
+        /   = link_to "#{@user.username}", toppages_show_path, class: "nav-link"
         li.nav-item
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
       - else

@@ -56,7 +56,7 @@
 }
 
 .stream-post a, .stream-commentcount a {
-    color: #40474e !important;
+    color: #40474e;
 }
 
 .toppages-left {
@@ -78,7 +78,7 @@
 }
 
 .toppages-left li a{
-    color: #40474e !important;
+    color: #40474e;
 }
 
 .toppages-right {
@@ -106,4 +106,14 @@
 
 .stream-heart-count {
     margin-top: 6px;
+}
+
+.tag-control{
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+    background-color: #fdae96;
+}
+
+.tag-control a{
+    color: #fff;
 }
