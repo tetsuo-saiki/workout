@@ -6,7 +6,16 @@
 .inline = @post.user.username
 .post-main
   = simple_format(@post.post)
-  img class="img-half-rounded" src="#{@post.image}" width="300" alt=""
+  - if !@post.image.blank?
+    img class="img-half-rounded" src="#{@post.image}" width="300" alt=""
+.row
+  .post-tags
+    -if @post.tags
+      - @post.tags.each do |tag|
+        .added_tag
+          = tag.tag
+    - if current_user == @post.user
+      = link_to "タグを編集", new_tag_relation_path(id: @post.id)
 .post-time = time_ago_in_words(@post.created_at)+"前"
 br
 table.table.table-striped
