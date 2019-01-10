@@ -57,6 +57,12 @@
             .row
               .stream-postimage.col-xs-12
                 img class="img-half-rounded" src="#{post.image}" width="150" alt=""
+          - if user_signed_in?
+            .row
+              .heart.stream-heart
+                = render "like_relations/button", post: post, user: @user
+              .heart-count.stream-heart-count
+                = post.liked_users.count
           .row
             .stream-commentcount.col-xs-12
               = link_to "コメント#{post.comments.count}件", post_path(post)
@@ -64,8 +70,4 @@
             .row
               .stream-commentcount.col-xs-12
                 = link_to "この投稿にタグをつける", new_tag_relation_path(id: post.id)
-          / - if current_user == post.user 
-          /   .row
-          /     .stream-deletebutton.col-xs-12
-          /       = link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger'
     = paginate @posts

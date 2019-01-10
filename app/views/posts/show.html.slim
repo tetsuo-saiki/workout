@@ -16,6 +16,12 @@
           = tag.tag
     - if current_user == @post.user
       = link_to "タグを編集", new_tag_relation_path(id: @post.id)
+.row
+  .heart 
+    = render "like_relations/button", post: @post, user: @user
+  .heart-count
+    = @post.liked_users.count
+
 .post-time = time_ago_in_words(@post.created_at)+"前"
 br
 table.table.table-striped

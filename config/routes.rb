@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :edit, :destroy]
   resources :tags, only: [:new, :create, :destroy]
   resources :tag_relations, only: [:new, :create, :destroy]
+  resources :like_relations, only: [:show, :create, :destroy]
 end

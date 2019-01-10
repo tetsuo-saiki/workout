@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :tag_relations
   has_many :tags, through: :tag_relations, source: :tag
+  has_many :like_relations
+  has_many :liked_users, through: :like_relations, source: :user
 
   validates :post, presence: true, length: {maximum: 500}
 

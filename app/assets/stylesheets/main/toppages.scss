@@ -20,26 +20,20 @@
 }
 .stream-userimage {
     margin-right: 10px;
-    // background-color: #198f15;
-    // width: 15%;
 }
 .stream-username {
     font-weight: bold;
-    // background-color: #b4eeb2;
     padding-top: 10px;
     width: 40%;
     vertical-align: center;
 }
 .stream-posttime {
     font-size: 12px;
-    // background-color: #e7e7f1;
     width: 40%;
     text-align: right;
-    // vertical-align: middle;
     padding: 10px 0;
 }
 .stream-post {
-    // background-color: #da897b;
     width: 83%;
     margin-left: 60px;
 }
@@ -103,4 +97,13 @@
     padding: 2px 4px 2px 4px;
     border-radius: 4px;
     background-color: #fdede8;
+}
+
+.stream-heart {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.stream-heart-count {
+    margin-top: 6px;
 }

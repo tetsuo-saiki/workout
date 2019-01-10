@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  has_many :like_relations
+  has_many :likes, through: :like_relations, source: :post
+
   mount_uploader :image, UserImageUploader
 
   def self.from_omniauth(auth)
@@ -34,5 +37,18 @@ class User < ApplicationRecord
     else
       super
     end
+  end
+
+  def add_like(post)
+    self.like_relations.find_or_create_by(post_id: post.id)
+  end
+
+  def detach_like(post)
+    like_relations = self.like_relations.find_by(post_id: post.id)
+    like_relations.destroy if like_relations
+  end
+
+  def liked?(post)
+    self.likes.include?(post)
   end
 end

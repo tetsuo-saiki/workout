@@ -1,0 +1,8 @@
+- if user.liked?(post)
+  .heart-liked
+    = form_for(user.like_relations.find_by(post_id: post.id), html: { method: :delete }) do |f|
+      = hidden_field_tag :post_id, post.id
+- else
+  .heart-unliked
+    = form_for(user.like_relations.build) do |f|
+      = hidden_field_tag :post_id, post.id
