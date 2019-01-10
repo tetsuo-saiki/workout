@@ -1,9 +1,14 @@
 class ToppagesController < ApplicationController
   def index
-    if params[:tag_id]
+    if params[:search]
+      @search_word = params[:search]
+      @searched_posts = Post.where('post like ?', "%#{@search_word}%")
+      @posts = @searched_posts.page(params[:page]).per(5).order('created_at desc')
+      @searched_posts_count = @searched_posts.count
+    elsif params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.page(params[:page]).per(5).order('created_at desc')
-      @posts_count = @tag.posts.count
+      @tag_posts_count = @tag.posts.count
     else
       @posts = Post.page(params[:page]).per(5).order('created_at desc')
     end
