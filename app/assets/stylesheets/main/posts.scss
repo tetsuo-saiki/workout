@@ -13,33 +13,32 @@
     padding: 15px 15px 15px 15px ;
     margin-bottom: 10px;
 }
-
 .post-time {
     font-size: 15px;
     font-weight: bold;
     margin: 0 0 10px 20px;
 }
-
 .post-tags {
     margin: 10px 0 20px 10px;
     font-size: 12px;
+    a {
+        color: #40474e !important;
+        margin-left: 20px;
+    }
 }
-
-.post-tags a {
-    color: #40474e !important;
-    margin-left: 20px;
+.post-comments td {
+    font-size: 13px;
 }
 
 /**
  * お気に入りボタンCSS
  */
-.heart-liked, .heart-unliked {
+@mixin heart {
     position: relative;
     width: 20px;
     height: 18px;
     margin: 0 0 10px 20px;
 }
-
 @mixin heart-beforeafter {
     position: absolute;
     content: "";
@@ -51,34 +50,42 @@
     transform: rotate(-45deg);
     transform-origin: 0 100%;
 }
-
-.heart-liked:before,
-.heart-liked:after {
-    @include heart-beforeafter;
-    background: red;
-}
-.heart-unliked:before,
-.heart-unliked:after {
-    @include heart-beforeafter;
-    background: rgb(250, 226, 226);
-}
-
-.heart-liked:after, .heart-unliked:after {
+@mixin heart-after {
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
 }
-
+.heart-liked {
+    @include heart;
+    &:before, &:after {
+        @include heart-beforeafter;
+        background: red;
+    }
+    &:after {
+        @include heart-after;
+    }
+    &:hover {
+        transform: translate3d(0, 1px, 0);
+    }
+}
+.heart-unliked {
+    @include heart;
+    &:before, &:after {
+        @include heart-beforeafter;
+        background: rgb(250, 226, 226);
+    }
+    &:after {
+        @include heart-after;
+    }
+    &:hover {
+        transform: translate3d(0, 1px, 0);
+    }
+}
 .heart {
     display: inline-block;
     margin-top: 4px;
 }
-
 .heart-count {
     display: inline-block;
     margin-left: 5px;
-}
-
-.heart-liked:hover, .heart-unliked:hover {
-    transform: translate3d(0, 1px, 0);
 }

@@ -12,7 +12,7 @@ class LikeRelationsController < ApplicationController
 
   def destroy
     current_user.detach_like(@post)
-    flash[:success] = '投稿をお気に入りから外しました'
+    flash[:notice] = '投稿をお気に入りから外しました'
     redirect_to post_path(@post)
   end
 

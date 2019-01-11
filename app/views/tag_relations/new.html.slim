@@ -2,14 +2,19 @@
   .row
     .tag-relations
       .tag-relations-left
-        | デフォルトタグ一覧
+        | デフォルトタグ
+        br
+        br
         - @default_tags.each do |tag|
           = render "tag_relations/button", tag: tag, post: @post
 
       .tag-relations-right
-        | 作成したタグ一覧
+        | オリジナルタグ
+        br
+        br
         - @user_tags.each do |tag|
           = render "tag_relations/button", tag: tag, post: @post
   br
   .row
-    = link_to "タグ付けした投稿へ移動", post_path(@post), class: "btn btn-light"
+    = link_to "投稿へ移動", post_path(@post), class: "btn btn-secondary"
+  br

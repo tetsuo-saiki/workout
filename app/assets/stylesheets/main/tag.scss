@@ -1,36 +1,36 @@
 .tags-left {
     float: left;
-    width: 30%;
+    width: 40%;
     padding: 0;
     text-align: left;
     font-size: 15px;
 }
-
 .tags-left ul, .tags-right ul {
     margin: 0;
     padding: 0;
+    li {
+        list-style: none;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
 }
-
-.tags-left li, .tags-right li {
-    list-style: none;
-    margin-bottom: 5px;
-}
-
 .tags-right {
     float: right;
-    width: 70%;
+    width: 60%;
+    .new_tag {
+        width: 90%;
+    }
 }
 
 .tag-relations li{
     list-style: none;
 }
-
 .tag-relations-left {
     float: left;
-    width: 50%;
+    width: 45%;
 }
-
 .tag-relations-right {
     float: right;
-    width: 50%;
+    width: 45%;
+    margin-left: 10%;
 }

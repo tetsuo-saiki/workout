@@ -12,10 +12,11 @@ class ToppagesController < ApplicationController
     else
       @posts = Post.page(params[:page]).per(5).order('created_at desc')
     end
-    @tags = Tag.all
+    @default_tags = Tag.all.order('created_at asc').limit(15)
     if user_signed_in?
       @user = current_user
       @post = current_user.posts.build
+      @user_tags = Tag.where(user_id: current_user.id).order('created_at desc')
     end
   end
 

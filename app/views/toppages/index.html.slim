@@ -2,12 +2,18 @@
   span.tag-control = link_to "タグ管理", new_tag_path
   br
   br
-  | タグ検索
+  | デフォルトタグ検索
   br
-  | ーーーー
-  br
+  .bar
   ul
-    - @tags.each do |tag|
+    - @default_tags.each do |tag|
+      li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
+  br
+  | オリジナルタグ検索
+  br
+  .bar
+  ul
+    - @user_tags.each do |tag|
       li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
 
 .toppages-right
@@ -32,7 +38,7 @@
   - if @searched_posts_count
     .row
       = "ワード： #{@search_word} の検索結果　（#{@searched_posts_count}件）"
-  - elsif @tag && @posts_count
+  - elsif @tag && @tag_posts_count
     .row
       = "タグ： #{@tag.tag} の検索結果　（#{@tag_posts_count}件）"
 
