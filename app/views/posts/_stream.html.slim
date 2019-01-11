@@ -5,11 +5,11 @@
         .row
           .stream-userimage.col-xs-5
             - if post.user.image.blank?
-              img.img-rounded src="#{gravatar_url(post.user, { size: 50 })}" alt="" 
+              = link_to image_tag("#{gravatar_url(post.user, { size: 50 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), user_path(post.user)
             - else
-              img.img-rounded src="#{post.user.image}" width="50" alt="" 
+              = link_to image_tag("#{post.user.image}", {width: "50", alt: "ユーザプロフィール", class: "img-rounded"}), user_path(post.user)
           .stream-username.col-xs-4
-            = post.user.username
+            = link_to post.user.username, user_path(post.user)
           .stream-posttime.col-xs-3
             p = time_ago_in_words(post.created_at)+"前"
         .row
