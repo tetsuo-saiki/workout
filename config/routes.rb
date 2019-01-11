@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
-  get 'toppages/index'
-  get 'toppages/show'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
+  get 'toppages/index'
 
+  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
+  resources :users, only: [:index, :show]
   resources :posts, only: [:create, :show, :destroy]
   resources :comments, only: [:create, :edit, :destroy]
   resources :tags, only: [:new, :create, :destroy]

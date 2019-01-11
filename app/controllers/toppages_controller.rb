@@ -19,10 +19,4 @@ class ToppagesController < ApplicationController
       @user_tags = Tag.where(user_id: current_user.id).order('created_at desc')
     end
   end
-
-  def show
-    @user = current_user
-    @user_posts = @user.posts.page(params[:page]).per(5).order('created_at desc')
-    @user_likes = @user.likes.page(params[:page]).per(5).order('created_at desc')
-  end
 end

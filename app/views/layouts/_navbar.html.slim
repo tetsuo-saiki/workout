@@ -6,10 +6,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     ul.navbar-nav.mr-auto
       - if user_signed_in?
         li.nav-item
-          - if @user.image.blank?
-            = link_to image_tag("#{gravatar_url(@user, { size: 40 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), toppages_show_path
+          - if current_user.image.blank?
+            = link_to image_tag("#{gravatar_url(current_user, { size: 40 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), user_path(current_user)
           - else
-            = link_to image_tag("#{@user.image}", {width: "40", alt: "ユーザプロフィール", class: "img-rounded"}), toppages_show_path
+            = link_to image_tag("#{current_user.image}", {width: "40", alt: "ユーザプロフィール", class: "img-rounded"}), user_path(current_user)
         / li.nav-item
         /   = link_to "#{@user.username}", toppages_show_path, class: "nav-link"
         li.nav-item

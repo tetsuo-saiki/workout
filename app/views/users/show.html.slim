@@ -9,6 +9,9 @@
     li.nav-item
       a.nav-link#pills-like-tab data-toggle="pill" href="#pills-like" role="tab" aria-controls="pills-like" aria-selected="false"
         | お気に入り
+    li.nav-item
+      a.nav-link#pills-follow-tab data-toggle="pill" href="#pills-follow" role="tab" aria-controls="pills-follow" aria-selected="false"
+        | フォロー
   .tab-content#pills-tabContent
     .tab-pane.fade.show.active#pills-profile role="tabpanel" aria-labelledby="pills-profile-tab"
       br
@@ -43,10 +46,13 @@
         tr
           th デッドリフトMAX(kg)
           td = @user.deadlift_max
-      = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-info"
+      - if @user == current_user
+        = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-info"
       br
       br
     .tab-pane.fade#pills-ownpost role="tabpanel" aria-labelledby="pills-ownpost-tab"
       = render 'posts/stream', posts: @user_posts, user: @user
     .tab-pane.fade#pills-like role="tabpanel" aria-labelledby="pills-like-tab"
       = render 'posts/stream', posts: @user_likes, user: @user
+
+    .tab-pane.fade#pills-follow role="tabpanel" aria-labelledby="pills-follow-tab"
