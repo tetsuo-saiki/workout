@@ -19,6 +19,11 @@ class User < ApplicationRecord
   has_many :like_relations
   has_many :likes, through: :like_relations, source: :post
 
+  has_many :follow_relations
+  has_many :followings, through: :follow_relations, source: :follow
+  has_many :reverse_follow_relations, class_name: 'FollowRelation', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_follow_relations, source: :user
+
   mount_uploader :image, UserImageUploader
 
   def self.from_omniauth(auth)
@@ -50,5 +55,20 @@ class User < ApplicationRecord
 
   def liked?(post)
     self.likes.include?(post)
+  end
+
+  def follow(other_user)
+    unless self == other_user
+      self.follow_relations.find_or_create_by(follow_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    follow_relations = self.follow_relations.find_by(follow_id: other_user.id)
+    follow_relations.destroy if follow_relations
+  end
+
+  def following?(other_user)
+    self.followings.include?(other_user)
   end
 end

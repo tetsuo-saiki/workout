@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :tags, only: [:new, :create, :destroy]
   resources :tag_relations, only: [:new, :create, :destroy]
   resources :like_relations, only: [:show, :create, :destroy]
+  resources :follow_relations, only: [:create, :destroy]
 end

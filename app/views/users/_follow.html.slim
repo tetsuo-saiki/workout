@@ -1,0 +1,12 @@
+= count
+table.table.table-striped
+  - follows.each do |follow|
+    tr
+      td
+        - if follow.image.blank?
+          = link_to image_tag("#{gravatar_url(follow, { size: 50 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), user_path(follow)
+        - else
+          = link_to image_tag("#{follow.image}", {width: "50", alt: "ユーザプロフィール", class: "img-rounded"}), user_path(follow)
+      td
+        = link_to follow.username, user_path(follow)
+= paginate follows

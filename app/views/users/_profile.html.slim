@@ -1,0 +1,30 @@
+table.table.table-striped
+  tr
+    th ユーザ名
+    td = user.username
+  - if current_user == user
+    tr
+      th メールアドレス
+      td = user.email
+    tr
+      th 性別
+      td = user.sex
+    tr
+      th 誕生日
+      td = user.birth_day
+  tr
+    th プロフィール
+    td = simple_format(user.profile)
+  tr
+    th ベンチプレスMAX(kg)
+    td = user.bench_press_max
+  tr
+    th スクワットMAX(kg)
+    td = user.squat_max
+  tr
+    th デッドリフトMAX(kg)
+    td = user.deadlift_max
+- if user == current_user
+  = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-info"
+br
+br

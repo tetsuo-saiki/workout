@@ -27,7 +27,7 @@
         - if user_signed_in?
           .row
             .heart.stream-heart
-              = render "like_relations/button", post: post, user: user
+              = render "like_relations/button", post: post, user: current_user
             .heart-count.stream-heart-count
               = post.liked_users.count
         .row

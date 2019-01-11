@@ -7,11 +7,10 @@
     color: red;
 }
 
-a#pills-ownpost-tab, a#pills-profile-tab, a#pills-like-tab {
+a#pills-ownpost-tab, a#pills-profile-tab, a#pills-like-tab, a#pills-follow-tab, a#pills-follower-tab {
     color: #343a40;
 }
-
-a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active {
+a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active, a#pills-follow-tab.active, a#pills-follower-tab.active {
     color: #fff;
 }
 
@@ -26,4 +25,8 @@ a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active 
 }
 .custom-file-label {
     white-space: nowrap;
+}
+
+#pills-follower a, #pills-follow a {
+    color: #40474e !important;
 }

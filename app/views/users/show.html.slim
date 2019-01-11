@@ -1,58 +1,39 @@
-- if user_signed_in?
-  ul.nav.nav-pills.mb-3#pills-tab role="tablist"
-    li.nav-item
-      a.nav-link.active#pills-profile-tab data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true"
-        | プロフィール
-    li.nav-item
-      a.nav-link#pills-ownpost-tab data-toggle="pill" href="#pills-ownpost" role="tab" aria-controls="pills-ownpost" aria-selected="false"
-        | 投稿
-    li.nav-item
-      a.nav-link#pills-like-tab data-toggle="pill" href="#pills-like" role="tab" aria-controls="pills-like" aria-selected="false"
-        | お気に入り
-    li.nav-item
-      a.nav-link#pills-follow-tab data-toggle="pill" href="#pills-follow" role="tab" aria-controls="pills-follow" aria-selected="false"
-        | フォロー
-  .tab-content#pills-tabContent
-    .tab-pane.fade.show.active#pills-profile role="tabpanel" aria-labelledby="pills-profile-tab"
+ul.nav.nav-pills.mb-3#pills-tab role="tablist"
+  li.nav-item
+    a.nav-link.active#pills-profile-tab data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true"
+      | プロフィール
+  li.nav-item
+    a.nav-link#pills-ownpost-tab data-toggle="pill" href="#pills-ownpost" role="tab" aria-controls="pills-ownpost" aria-selected="false"
+      | 投稿
+  li.nav-item
+    a.nav-link#pills-like-tab data-toggle="pill" href="#pills-like" role="tab" aria-controls="pills-like" aria-selected="false"
+      | お気に入り
+  li.nav-item
+    a.nav-link#pills-follow-tab data-toggle="pill" href="#pills-follow" role="tab" aria-controls="pills-follow" aria-selected="false"
+      | フォロー
+  li.nav-item
+    a.nav-link#pills-follower-tab data-toggle="pill" href="#pills-follower" role="tab" aria-controls="pills-follower" aria-selected="false"
+      | フォロワー
+.tab-content#pills-tabContent
+  .tab-pane.fade.show.active#pills-profile role="tabpanel" aria-labelledby="pills-profile-tab"
+    br
+    - if @user.image.blank?
+      img class="img-rounded" src="#{gravatar_url(@user, { size: 300 })}" alt="" 
+    - else
+      img class="img-rounded" src="#{@user.image}" width="300" alt=""
+    br
+    - if user_signed_in?
       br
-      - if @user.image.blank?
-        img class="img-rounded" src="#{gravatar_url(@user, { size: 300 })}" alt="" 
-      - else
-        img class="img-rounded" src="#{@user.image}" width="300" alt=""
-      br
-      br
-      table.table.table-striped
-        tr
-          th ユーザ名
-          td = @user.username
-        tr
-          th メールアドレス
-          td = @user.email
-        tr
-          th 性別
-          td = @user.sex
-        tr
-          th 誕生日
-          td = @user.birth_day
-        tr
-          th プロフィール
-          td = simple_format(@user.profile)
-        tr
-          th ベンチプレスMAX(kg)
-          td = @user.bench_press_max
-        tr
-          th スクワットMAX(kg)
-          td = @user.squat_max
-        tr
-          th デッドリフトMAX(kg)
-          td = @user.deadlift_max
-      - if @user == current_user
-        = link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-info"
-      br
-      br
-    .tab-pane.fade#pills-ownpost role="tabpanel" aria-labelledby="pills-ownpost-tab"
-      = render 'posts/stream', posts: @user_posts, user: @user
-    .tab-pane.fade#pills-like role="tabpanel" aria-labelledby="pills-like-tab"
-      = render 'posts/stream', posts: @user_likes, user: @user
-
-    .tab-pane.fade#pills-follow role="tabpanel" aria-labelledby="pills-follow-tab"
+      = render 'follow_relations/button', user: @user
+    br
+    = render 'users/profile', user: @user
+  .tab-pane.fade#pills-ownpost role="tabpanel" aria-labelledby="pills-ownpost-tab"
+    = render 'posts/stream', posts: @user_posts, user: @user
+  .tab-pane.fade#pills-like role="tabpanel" aria-labelledby="pills-like-tab"
+    = render 'posts/stream', posts: @user_likes, user: @user
+  .tab-pane.fade#pills-follow role="tabpanel" aria-labelledby="pills-follow-tab"
+    | フォロー：
+    = render 'users/follow', follows: @followings, count: @followings_count
+  .tab-pane.fade#pills-follower role="tabpanel" aria-labelledby="pills-follower-tab"
+    | フォロワー：
+    = render 'users/follow', follows: @followers, count: @followers_count
