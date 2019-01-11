@@ -9,12 +9,13 @@
     - @default_tags.each do |tag|
       li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
   br
-  | オリジナルタグ検索
-  br
-  .bar
-  ul
-    - @user_tags.each do |tag|
-      li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
+  - if @user_tags
+    | オリジナルタグ検索
+    br
+    .bar
+    ul
+      - @user_tags.each do |tag|
+        li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
 
 .toppages-right
   - if user_signed_in?
@@ -22,9 +23,12 @@
       ul
       - @post.errors.full_messages.each do |message|
         li = message
-      .form-group
+      .form-group.new-post
         = f.text_area :post, {placeholder: "今何してる？", class: 'form-control'}
-      .input-group
+      / .form-group.new-post-file
+      /   = f.file_field :image
+      /   .cross
+      .input-group.new-post-file
         .custom-file
           = f.file_field :image, class: "custom-file-input", id: "customFile", lang: "ja"
           label class="custom-file-label" for="customFile"
@@ -33,7 +37,8 @@
           button type="button" class="btn btn-outline-secondary reset"
             | 取消
       br
-      = f.submit "投稿する", class:'btn btn-dark'
+      .form-group.new-post-submit
+        = f.submit "投稿する", class:'btn btn-dark'
   br
   - if @searched_posts_count
     .row

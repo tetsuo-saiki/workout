@@ -14,3 +14,16 @@ a#pills-ownpost-tab, a#pills-profile-tab, a#pills-like-tab {
 a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active {
     color: #fff;
 }
+
+/**
+ * ユーザ画面側画像投稿
+ */
+ .custom-file-input:lang(ja) ~ .custom-file-label::after {
+    content: "参照";
+}
+.custom-file {
+    overflow: hidden;
+}
+.custom-file-label {
+    white-space: nowrap;
+}

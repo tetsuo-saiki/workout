@@ -128,3 +128,47 @@
 a {
     text-decoration: none !important;
 }
+
+// .new-post {
+//     display: inline-block;
+//     float: left;
+//     width: 75%;
+// }
+// .new-post-file {
+//     display: inline-block;
+//     float: right;
+//     width: 25%;
+//     padding-left: 10%;
+//     padding-top: 15px;
+//     #post_image {
+//         // display: none;
+//     }
+// }
+// .new-post-submit {
+//     clear: both;
+// }
+
+/**
+ * ファイル追加ボタンCSS
+ */
+// .cross {
+//     background: #fdae96;
+//     height: 30px;
+//     position: relative;
+//     width: 6px;
+//     &:after {
+//         background: #fdae96;
+//         content: "";
+//         height: 6px;
+//         left: -12px;
+//         position: absolute;
+//         top: 12px;
+//         width: 30px;
+//     }
+//     &:hover {
+//         background: #f88f6f;
+//         &:after {
+//             background: #f88f6f;
+//         }
+//     }
+// }

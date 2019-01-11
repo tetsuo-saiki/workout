@@ -1,4 +1,7 @@
 $(document).on('turbolinks:load', function(){
+    /**
+     * お気に入りボタン
+     */
     $('.heart-unliked').click(function() {
         $(this).find('.new_like_relation').submit();
     });
