@@ -61,16 +61,3 @@ ja:
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
-  # activerecord:
-  #   attributes:
-  #     user: ユーザ
-  #       password: パスワード
-  #       password_confirmation: パスワード確認
-  #       email: メールアドレス
-  #       username: ユーザ名
-  #       sex: 性別
-  #       # birth_day: 誕生日
-  #       profile: プロフィール
-  #       bench_press_max: ベンチプレスMAX
-  #       squat_max: スクワットMAX
-  #       deadlift_max: デッドリフトMAX

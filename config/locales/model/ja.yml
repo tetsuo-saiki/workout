@@ -1,0 +1,61 @@
+ja:
+  activerecord:
+    models:
+      admin_user: 管理者
+      comment: コメント
+      name: 名前
+      user: ユーザ
+      post: 投稿
+      tag: タグ
+    attributes:
+      admin_user:
+        email: メールアドレス
+        current_sign_in_at: 最新ログイン日時
+        sign_in_count: ログイン回数
+        created_at: 作成日時
+      name:
+        name: 名前
+        date: 日付
+        created_at: 作成日時
+        updated_at: 更新日時
+      user:
+        email: メールアドレス
+        current_sign_in_at: 最新ログイン日時
+        sign_in_count: ログイン回数
+        created_at: 作成日時
+        encrypted_password: 暗号化パスワード
+        reset_password_token: パスワードリセットトークン
+        reset_password_sent_at: パスワードリセットメール送信日時
+        remember_created_at: ログイン情報保持日時
+        last_sign_in_at: 前回ログイン日時
+        current_sign_in_ip: 最新ログインIP
+        last_sign_in_ip: 前回ログインIP
+        updated_at: 更新日時
+        confirmation_token: 登録確認トークン
+        confirmed_at: 登録確認日時
+        confirmation_sent_at: 登録確認メール送信日時
+        unconfirmed_email: 登録確認メール再送信日時
+        failed_attempts: 失敗した試行数
+        unlock_token: アカウントロック解除トークン
+        locked_at: アカウントロック日時
+        sex: 性別
+        birth_day: 誕生日
+        profile: プロフィール
+        bench_press_max: ベンチプレスMAX
+        squat_max: スクワットMAX
+        deadlift_max: デッドリフトMAX
+        provider: プロバイダ
+        uid: プロバイダユーザID
+        username: ユーザ名
+        created_at: 作成日時
+        updated_at: 更新日時
+        image: プロフィール画像
+      post:
+        post: 投稿
+        image: 画像
+        user: ユーザ
+        created_at: 作成日時
+      tag:
+        tag: タグ
+        user_id: ユーザID
+        created_at: 作成日時
