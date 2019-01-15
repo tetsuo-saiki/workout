@@ -13,15 +13,15 @@ class User < ApplicationRecord
   validates :squat_max, allow_blank: true, numericality: true
   validates :deadlift_max, allow_blank: true, numericality: true
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-  has_many :like_relations
+  has_many :like_relations, dependent: :destroy
   has_many :likes, through: :like_relations, source: :post
 
-  has_many :follow_relations
+  has_many :follow_relations, dependent: :destroy
   has_many :followings, through: :follow_relations, source: :follow
-  has_many :reverse_follow_relations, class_name: 'FollowRelation', foreign_key: 'follow_id'
+  has_many :reverse_follow_relations, class_name: 'FollowRelation', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_follow_relations, source: :user
 
   mount_uploader :image, UserImageUploader

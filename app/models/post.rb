@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :tag_relations
+  has_many :comments, dependent: :destroy
+  has_many :tag_relations, dependent: :destroy
   has_many :tags, through: :tag_relations, source: :tag
-  has_many :like_relations
+  has_many :like_relations, dependent: :destroy
   has_many :liked_users, through: :like_relations, source: :user
 
   validates :post, presence: true, length: {maximum: 500}
