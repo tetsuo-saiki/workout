@@ -7,13 +7,13 @@ class LikeRelationsController < ApplicationController
   def create
     current_user.add_like(@post)
     flash[:notice] = '投稿をお気に入りに追加しました'
-    redirect_to post_path(@post)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     current_user.detach_like(@post)
     flash[:notice] = '投稿をお気に入りから外しました'
-    redirect_to post_path(@post)
+    redirect_back(fallback_location: root_path)
   end
 
   private
