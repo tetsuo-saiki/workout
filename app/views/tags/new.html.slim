@@ -1,13 +1,14 @@
 - if user_signed_in?
-  .tags-left
-    | デフォルトタグ
-    br
-    .bar
-    ul
-      - @default_tags.each do |tag|
-        li = tag.tag
+  / .tags-left
+  /   | デフォルトタグ
+  /   br
+  /   .bar
+  /   ul
+  /     - @default_tags.each do |tag|
+  /       li = tag.tag
 
-  .tags-right
+  / .tags-right
+  .tags
     = form_for(@tag) do |f|
       ul
       - @tag.errors.full_messages.each do |message|
@@ -19,6 +20,7 @@
     br
     | オリジナルタグ
     br
+    p.tag-explain ここで作成したタグを投稿に追加できます
     .bar
     ul
       - @user_tags.each do |tag|
