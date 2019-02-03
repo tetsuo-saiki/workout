@@ -13,7 +13,7 @@
     -if @post.tags
       - @post.tags.each do |tag|
         .added_tag
-          = tag.tag
+          = link_to tag.tag, toppages_index_path(tag_id: tag.id)
     - if current_user == @post.user
       = link_to "タグを編集", new_tag_relation_path(id: @post.id)
 .row

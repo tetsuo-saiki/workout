@@ -19,7 +19,7 @@
               .added_tags
                 - post.tags.each do |tag|
                   .added_tag
-                    = tag.tag
+                    = link_to tag.tag, toppages_index_path(tag_id: tag.id)
         - if !post.image.blank?
           .row
             .stream-postimage.col-xs-12

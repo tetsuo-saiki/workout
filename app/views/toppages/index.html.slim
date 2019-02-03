@@ -2,20 +2,21 @@
   span.tag-control = link_to "タグ管理", new_tag_path
   br
   br
-  | デフォルトタグ検索
+  / | デフォルトタグ検索
+  | タグ検索
   br
   .bar
   ul
     - @default_tags.each do |tag|
       li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
-  br
-  - if @user_tags
-    | オリジナルタグ検索
-    br
-    .bar
-    ul
-      - @user_tags.each do |tag|
-        li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
+  / br
+  / - if @user_tags
+  /   | オリジナルタグ検索
+  /   br
+  /   .bar
+  /   ul
+  /     - @user_tags.each do |tag|
+  /       li = link_to tag.tag, toppages_index_path(tag_id: tag.id)
 
 .toppages-right
   - if user_signed_in?
