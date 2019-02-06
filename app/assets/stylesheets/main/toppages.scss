@@ -126,3 +126,11 @@ a {
     height: 62px;
     float: right;
 }
+
+form.form-inline .hidden-search {
+    display: none;
+}
+
+form.form-inline .search-image {
+    padding: 3px;
+}

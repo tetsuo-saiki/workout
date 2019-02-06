@@ -13,4 +13,10 @@ $(document).on('turbolinks:load', function(){
     $('.add-file').click(function(){
         $('.hidden-file').click();
     });
+
+    // 検索フォーム表示
+    $('.search-image').click(function(){
+        $(this).hide();
+        $('.hidden-search').show('middle');
+    });
 });

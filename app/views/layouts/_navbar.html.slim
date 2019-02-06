@@ -4,8 +4,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     span.navbar-toggler-icon
   #navbarColor01.navbar-collapse.collapse
     = form_tag(toppages_index_path, method: :get, class: "form-inline") do
-      = text_field_tag :search, nil, {class: "form-control mr-sm-2", placeholder: "検索ワード"}
+      = text_field_tag :search, nil, {class: "form-control mr-sm-2 hidden-search", placeholder: "本文検索"}
       / = submit_tag "本文検索", class: "btn btn-outline-info my-2 my-sm-0"
+      button.btn.btn-light.search-image type="button"
+        = image_tag("baseline_search_black_18dp.png", {alt: "検索", class: ""})
     ul.navbar-nav.ml-auto
       - if user_signed_in?
         li.nav-item
@@ -13,8 +15,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             = link_to image_tag("#{gravatar_url(current_user, { size: 40 })}", {alt: "ユーザプロフィール", class: "img-rounded"}), user_path(current_user)
           - else
             = link_to image_tag("#{current_user.image}", {width: "40", alt: "ユーザプロフィール", class: "img-rounded"}), user_path(current_user)
-        / li.nav-item
-        /   = link_to "#{@user.username}", toppages_show_path, class: "nav-link"
         li.nav-item
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
       - else
