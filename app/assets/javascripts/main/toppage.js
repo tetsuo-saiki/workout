@@ -8,4 +8,9 @@ $(document).on('turbolinks:load', function(){
     $('.heart-liked').click(function() {
         $(this).find('.edit_like_relation').submit();
     });
+
+    // ファイル送信
+    $('.add-file').click(function(){
+        $('.hidden-file').click();
+    });
 });

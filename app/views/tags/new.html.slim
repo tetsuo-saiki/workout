@@ -1,13 +1,4 @@
 - if user_signed_in?
-  / .tags-left
-  /   | デフォルトタグ
-  /   br
-  /   .bar
-  /   ul
-  /     - @default_tags.each do |tag|
-  /       li = tag.tag
-
-  / .tags-right
   .tags
     = form_for(@tag) do |f|
       ul
