@@ -10,11 +10,12 @@
         = f.text_area :post, {placeholder: "今何してる？", class: 'form-control'}
       / 画像ファイル
       = f.file_field :image, class: "hidden-file"
-      button.btn.btn-light.add-file type="button"
+      button.btn.btn-light.add-file type="button" style="background-color: #fcfcfc;"
         = image_tag("baseline_add_photo_alternate_black_18dp.png", {alt: "画像投稿", class: ""})
       br
       .form-group.new-post-submit
-        = f.submit "投稿する", class:'btn btn-dark'
+        / = f.submit "投稿する", class:'btn btn-light btn-block', style:"background-color: #f76;"
+        = f.submit "投稿する", class:'btn btn-dark btn-block'
   br
   / 検索結果表示
   - if @searched_posts_count
