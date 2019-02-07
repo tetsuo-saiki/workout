@@ -1,12 +1,13 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  = link_to 'Workout!', toppages_index_path, class: "navbar-brand"
+nav.navbar.navbar-expand-lg.navbar-light style="background-color: #ddd;"
+  = link_to image_tag("workout_logo.png", {style: "width:150px", alt: "タイトルロゴ", class: "navbar-brand"}), toppages_index_path
+  / = link_to 'Workout!', toppages_index_path, class: "navbar-brand"
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
   #navbarColor01.navbar-collapse.collapse
     = form_tag(toppages_index_path, method: :get, class: "form-inline") do
       = text_field_tag :search, nil, {class: "form-control mr-sm-2 hidden-search", placeholder: "本文検索"}
       / = submit_tag "本文検索", class: "btn btn-outline-info my-2 my-sm-0"
-      button.btn.btn-light.search-image type="button"
+      button.btn.btn-light.search-image type="button" style="background-color: #ddd;"
         = image_tag("baseline_search_black_18dp.png", {alt: "検索", class: ""})
     ul.navbar-nav.ml-auto
       - if user_signed_in?
