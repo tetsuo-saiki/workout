@@ -78,8 +78,8 @@ ja:
     pagination:
       first: 先頭
       last: 最終
-      previous: 前ページ
-      next: 次ページ
+      previous: 前
+      next: 次
       truncate: "..."
   helpers:
     page_entries_info:

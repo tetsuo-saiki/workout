@@ -1,3 +1,7 @@
+.tag-relations {
+    width: 100%;
+}
+
 .tag-relations li{
     list-style: none;
 }
@@ -13,4 +17,28 @@
 
 .tag-explain {
     font-size: 12px;
+}
+
+@mixin tag {
+    display: inline-block;
+    font-size: 12px;
+    margin: 5px;
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+}
+
+.added_tag {
+    @include tag;
+    background-color: #dc3545;
+    a {
+        color: #fcfcfc !important;
+    }
+}
+
+.select_tag {
+    @include tag;
+    background-color: #dc3545;
+    a {
+        color: #fcfcfc;
+    }
 }

@@ -2,7 +2,7 @@
   = form_for(post.tag_relations.find_by(tag_id: tag.id), html: { method: :delete }) do |f|
     = hidden_field_tag :post_id, post.id
     = hidden_field_tag :tag_id, tag.id
-    = f.submit tag.tag, class: 'btn btn-info'
+    = f.submit tag.tag, class: 'btn btn-danger'
 - else
   = form_for(post.tag_relations.build) do |f|
     = hidden_field_tag :post_id, post.id
