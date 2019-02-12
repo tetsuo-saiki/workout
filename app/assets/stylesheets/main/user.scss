@@ -13,6 +13,12 @@ a#pills-ownpost-tab, a#pills-profile-tab, a#pills-like-tab, a#pills-follow-tab, 
 a#pills-ownpost-tab.active, a#pills-profile-tab.active, a#pills-like-tab.active, a#pills-follow-tab.active, a#pills-follower-tab.active {
     color: #fff;
 }
+.tag-control {
+    margin: 8px;
+    a {
+        color: #343a40;
+    }
+}
 
 /**
  * ユーザ画面側画像投稿

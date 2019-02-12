@@ -14,6 +14,9 @@ ul.nav.nav-pills.mb-3#pills-tab role="tablist"
   li.nav-item
     a.nav-link#pills-follower-tab data-toggle="pill" href="#pills-follower" role="tab" aria-controls="pills-follower" aria-selected="false"
       | フォロワー
+  - if current_user == @user
+    li.nav-item
+      .tag-control = link_to "タグ追加", new_tag_path
 .tab-content#pills-tabContent
   .tab-pane.fade.show.active#pills-profile role="tabpanel" aria-labelledby="pills-profile-tab"
     br

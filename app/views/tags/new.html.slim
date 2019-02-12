@@ -6,13 +6,10 @@
         li = message
       = f.hidden_field :user_id, value: @user.id
       .form-group
-        = f.text_field :tag, placeholder: "10字まで作成可", class: 'form-control new_tag'
+        = f.text_field :tag, placeholder: "10字まで作成可", class: 'form-control new_tag', required: 'true'
       = f.submit "タグを作成する", class:'btn btn-dark'
     br
-    | オリジナルタグ
-    br
     p.tag-explain ここで作成したタグを投稿に追加できます
-    .bar
     ul
       - @user_tags.each do |tag|
         li = tag.tag

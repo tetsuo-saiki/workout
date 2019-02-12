@@ -28,14 +28,12 @@
   = render 'posts/stream', posts: @posts, user: @user
 / タグ検索
 .toppages-bottom
-  - if user_signed_in?
-    span.tag-control = link_to "オリジナルタグ追加", new_tag_path
-  br
-  / br
-  / | デフォルトタグ検索
-  / br
-  / .bar
   br
   - @default_tags.each do |tag|
     .select_tag
       = link_to tag.tag, toppages_index_path(tag_id: tag.id)
+  br
+  - if user_signed_in?
+    - @user_tags.each do |tag|
+      .select_tag
+        = link_to tag.tag, toppages_index_path(tag_id: tag.id)
