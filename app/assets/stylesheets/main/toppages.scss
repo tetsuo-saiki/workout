@@ -113,3 +113,24 @@ form.form-inline .search-image {
 .page-item a {
     color: #dc3545;
 }
+
+body, html {
+    height: 100%;
+}
+
+.body-main { 
+    height: 100%;
+    background-image: url("http://earth.publicdomainq.net/201706/21o/publicdomainq-0010336luoelt.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #80373e;
+    text-align: center;
+}
+
+footer {
+    background-color: #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -17,6 +17,13 @@ html
         p.notice.alert.alert-info = notice
       - if alert
         p.alert.alert.alert-danger = alert
-    .container
-      br
+    - if current_page?(toppages_index_path) && !user_signed_in? || current_page?(root_path) && !user_signed_in?
       = yield
+    -else
+      .container
+        br
+        = yield
+    br
+    br
+    footer
+      = render "layouts/footer"

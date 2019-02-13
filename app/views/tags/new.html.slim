@@ -1,4 +1,6 @@
 - if user_signed_in?
+  = link_to "戻る", user_path(@user), class: "btn btn-light"
+  br
   .tags
     = form_for(@tag) do |f|
       ul
