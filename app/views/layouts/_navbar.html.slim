@@ -18,9 +18,9 @@ nav.navbar.navbar-expand-lg.navbar-light style="background-color: #ddd;"
           - else
             = link_to image_tag("#{current_user.image}", {width: "40", alt: "ユーザプロフィール", class: "img-rounded"}), user_path(current_user)
         li.nav-item
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
+          = link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link"
       - else
         li.nav-item
-          = link_to 'サインアップ', new_user_registration_path, class: "nav-link"
+          = link_to 'Sign Up', new_user_registration_path, class: "nav-link"
         li.nav-item
-          = link_to 'ログイン', new_user_session_path, class: "nav-link"
+          = link_to 'Log In', new_user_session_path, class: "nav-link"
