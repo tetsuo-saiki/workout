@@ -21,4 +21,4 @@ Tag.create!(tag: 'ランニング')
 Tag.create!(tag: 'ダイエット')
 Tag.create!(tag: 'トレ記録')
 Tag.create!(tag: 'BIG3')
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
